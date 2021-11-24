@@ -28,4 +28,8 @@ RUN apt-get -qq -y install \
   net-tools \
   telnet
 
-CMD ["/bin/sleep", "7d"]
+
+WORKDIR /
+
+#CMD ["/bin/sleep", "7d"] ##  TESTING
+CMD ["/usr/sbin/apachectl","-DFOREGROUND"]
