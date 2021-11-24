@@ -22,5 +22,5 @@ Apache2 proxy server for testing Built Technologies arch
 
 ##  Build for EC2 and push to DockerHub
 
-        DH_ACCT='acutchinbitpusher'; REPO='apache-proxy'; TAG=`cat version^C cut -f2 -d= | tr -d \'`; docker buildx build --platform linux/amd64 -t $DH_ACCT/$REPO:$TAG . && docker push $DH_ACCT/$REPO:$TAG
+        DH_ACCT='acutchinbitpusher'; REPO='apache-proxy'; TAG=`cat version cut -f2 -d= | tr -d \'`; docker buildx build --platform linux/amd64 -t $DH_ACCT/$REPO:$TAG . && docker push $DH_ACCT/$REPO:$TAG
 
