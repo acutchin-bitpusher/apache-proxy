@@ -15,10 +15,11 @@ RUN apt-get update && \
 RUN rm -f /etc/apache2/conf-enabled/* && \
   rm -f /etc/apache2/mods-enabled/* && \
   rm -f /etc/apache2/sites-enabled/* && \
-  /usr/sbin/a2enmod proxy mpm_event authz_core && \
+  /usr/sbin/a2enmod proxy mpm_worker authz_core proxy_http && \
   mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf.orig
 
 COPY apache2.conf /etc/apache2/apache2.conf
+COPY index.html /var/www/html/index.html
 
 ##  DEBUGGING TOOLS - CAN BE DISABLED
 RUN apt-get -qq -y install \
